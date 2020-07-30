@@ -2,7 +2,7 @@ import pandas as pd
 
 df = pd.read_excel(r'C:\Users\lisiz\OneDrive\Q factor model\2002\200305 FACTOR 499.xlsx',sheet_name ='FACTOR')
 def cal(df):
-    #划分大小市值公司 Sorting the companies into big(B) and small(S) companyies groups according to the market equities(ME)
+    #划分大小市值公司 Sorting the companies into big(B) and small(S) companies groups according to the market equities(ME)
     df['SB'] = df['ME'].map(lambda x:'B' if x >= df['ME'].median() else 'S')
     #划分高中低ROE公司 Sorting the companies into roubust ROE(R), medium ROE(M) and weak ROE(W) according to the ROEs
     border_down, border_up = df['ROE'].quantile([0.3,0.7])
